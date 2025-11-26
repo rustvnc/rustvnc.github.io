@@ -138,6 +138,7 @@ pre code {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: var(--space-lg);
 }
 
@@ -148,6 +149,46 @@ pre code {
 }
 
 .nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Nav Dropdown */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    cursor: pointer;
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-sm) 0;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--text);
+    font-weight: 400;
+}
+
+.nav-dropdown-menu a:hover {
+    background: var(--bg-alt);
     color: var(--accent);
 }
 
