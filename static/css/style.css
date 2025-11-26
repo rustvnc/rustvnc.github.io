@@ -123,9 +123,22 @@ pre code {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
+}
+
+.logo-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 6px;
+}
+
+.logo-text {
+    display: flex;
 }
 
 .logo-rust {
@@ -233,6 +246,14 @@ pre code {
     color: white;
     padding: var(--space-xl) 0;
     text-align: center;
+}
+
+.hero-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    margin-bottom: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {

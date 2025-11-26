@@ -3,11 +3,12 @@
 {% block content %}
 <section class="hero">
     <div class="container">
+        <img src="/images/logo.png" alt="RustVNC" class="hero-logo">
         <h1><span class="text-rust">Rust</span>VNC</h1>
         <p class="tagline">Production-ready Rust libraries for VNC protocol implementation</p>
         <p class="subtitle">Build VNC servers, clients, proxies, and recording tools with memory safety, modern async I/O, and full RFC 6143 compliance.</p>
         <div class="hero-buttons">
-            <a href="{{ get_url(path='docs/_index.md') }}" class="btn btn-primary">Get Started</a>
+            <a href="/docs/" class="btn btn-primary">Get Started</a>
             <a href="{{ config.extra.github_org }}" class="btn btn-secondary" target="_blank">View on GitHub</a>
         </div>
         <div class="hero-install">
@@ -191,7 +192,7 @@ async fn main() -> Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
             <code>cargo add rustvncserver</code>
         </div>
         <div class="cta-buttons">
-            <a href="{{ get_url(path='docs/_index.md') }}" class="btn btn-primary">Read the Docs</a>
+            <a href="/docs/" class="btn btn-primary">Read the Docs</a>
             <a href="{{ config.extra.github_org }}" class="btn btn-secondary" target="_blank">Star on GitHub</a>
         </div>
     </div>

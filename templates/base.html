@@ -20,6 +20,7 @@
 
     <title>{% block title %}{{ config.title }}{% endblock %}</title>
 
+    <link rel="icon" type="image/png" href="/images/logo.png">
     <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
 
     {% block head_extra %}{% endblock %}
@@ -28,7 +29,8 @@
     <nav class="navbar">
         <div class="container">
             <a href="{{ get_url(path='/') }}" class="logo">
-                <span class="logo-rust">Rust</span><span class="logo-vnc">VNC</span>
+                <img src="/images/logo.png" alt="RustVNC" class="logo-img">
+                <span class="logo-text"><span class="logo-rust">Rust</span><span class="logo-vnc">VNC</span></span>
             </a>
             <div class="nav-links">
                 <a href="/docs/">Docs</a>
