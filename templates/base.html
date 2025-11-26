@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+    <meta name="keywords" content="VNC, Rust, RFB protocol, remote desktop, vnc server, rust library">
+    <meta name="author" content="{{ config.extra.author }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config.base_url }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ config.title }}{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ config.description }}{% endblock %}">
+
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
+
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ get_url(path='/') }}" class="logo">
+                <span class="logo-rust">Rust</span><span class="logo-vnc">VNC</span>
+            </a>
+            <div class="nav-links">
+                <a href="{{ get_url(path='docs/_index.md') }}">Docs</a>
+                <a href="{{ config.extra.rustvncserver_docs }}" target="_blank">API</a>
+                <a href="{{ config.extra.github_org }}" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Libraries</h4>
+                    <a href="{{ config.extra.rustvncserver_crate }}" target="_blank">rustvncserver</a>
+                    <a href="{{ config.extra.rfb_encodings_crate }}" target="_blank">rfb-encodings</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="{{ get_url(path='docs/_index.md') }}">Documentation</a>
+                    <a href="{{ config.extra.rustvncserver_docs }}" target="_blank">API Reference</a>
+                    <a href="{{ config.extra.github_org }}" target="_blank">GitHub</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <a href="{{ config.extra.github_org }}/discussions" target="_blank">Discussions</a>
+                    <a href="mailto:{{ config.extra.email }}">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built with Rust and Zola. Licensed under Apache-2.0.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

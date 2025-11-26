@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1><span class="text-rust">Rust</span>VNC</h1>
+        <p class="tagline">Production-ready Rust libraries for VNC protocol implementation</p>
+        <p class="subtitle">Build VNC servers, clients, proxies, and recording tools with memory safety, modern async I/O, and full RFC 6143 compliance.</p>
+        <div class="hero-buttons">
+            <a href="{{ get_url(path='docs/_index.md') }}" class="btn btn-primary">Get Started</a>
+            <a href="{{ config.extra.github_org }}" class="btn btn-secondary" target="_blank">View on GitHub</a>
+        </div>
+        <div class="hero-install">
+            <code>cargo add rustvncserver</code>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why RustVNC?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Memory Safe</h3>
+                <p>Zero buffer overflows, use-after-free bugs, or data races. Rust's ownership system prevents entire classes of vulnerabilities that plague C/C++ VNC implementations.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>High Performance</h3>
+                <p>Zero-copy framebuffer updates, SIMD-optimized encoding, and persistent compression streams. Built on Tokio for efficient async I/O.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+                <h3>RFC 6143 Compliant</h3>
+                <p>Full protocol implementation with 11 encoding types. Works with all VNC clients: TightVNC, RealVNC, TigerVNC, noVNC, and more.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧩</div>
+                <h3>Modular Design</h3>
+                <p>Use what you need. From low-level encoding algorithms to complete server implementations. Build servers, clients, proxies, or recorders.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="libraries">
+    <div class="container">
+        <h2>Core Libraries</h2>
+
+        <div class="library-card">
+            <div class="library-header">
+                <h3>rustvncserver</h3>
+                <div class="library-badges">
+                    <a href="{{ config.extra.rustvncserver_crate }}" target="_blank">
+                        <img src="https://img.shields.io/crates/v/rustvncserver.svg" alt="crates.io">
+                    </a>
+                    <a href="{{ config.extra.rustvncserver_docs }}" target="_blank">
+                        <img src="https://docs.rs/rustvncserver/badge.svg" alt="docs.rs">
+                    </a>
+                </div>
+            </div>
+            <p>Complete VNC server library with async I/O, authentication, and all standard encodings.</p>
+            <pre><code class="language-rust">use rustvncserver::VncServer;
+
+#[tokio::main]
+async fn main() -> Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+    let server = VncServer::new(1920, 1080);
+    server.set_password(Some("secret".into()));
+    server.listen(5900).await?;
+    Ok(())
+}</code></pre>
+            <div class="library-links">
+                <a href="{{ config.extra.rustvncserver_repo }}" target="_blank">GitHub</a>
+                <a href="{{ config.extra.rustvncserver_docs }}" target="_blank">API Docs</a>
+                <a href="{{ config.extra.rustvncserver_crate }}" target="_blank">Crates.io</a>
+            </div>
+        </div>
+
+        <div class="library-card">
+            <div class="library-header">
+                <h3>rfb-encodings</h3>
+                <div class="library-badges">
+                    <a href="{{ config.extra.rfb_encodings_crate }}" target="_blank">
+                        <img src="https://img.shields.io/crates/v/rfb-encodings.svg" alt="crates.io">
+                    </a>
+                    <a href="{{ config.extra.rfb_encodings_docs }}" target="_blank">
+                        <img src="https://docs.rs/rfb-encodings/badge.svg" alt="docs.rs">
+                    </a>
+                </div>
+            </div>
+            <p>Standalone RFB encoding implementations. Use in servers, clients, proxies, or recording tools.</p>
+            <div class="encoding-grid">
+                <span class="encoding">Raw</span>
+                <span class="encoding">CopyRect</span>
+                <span class="encoding">RRE</span>
+                <span class="encoding">Hextile</span>
+                <span class="encoding">Zlib</span>
+                <span class="encoding">Tight</span>
+                <span class="encoding">ZRLE</span>
+                <span class="encoding">ZYWRLE</span>
+                <span class="encoding">TightPng</span>
+                <span class="encoding">+more</span>
+            </div>
+            <div class="library-links">
+                <a href="{{ config.extra.rfb_encodings_repo }}" target="_blank">GitHub</a>
+                <a href="{{ config.extra.rfb_encodings_docs }}" target="_blank">API Docs</a>
+                <a href="{{ config.extra.rfb_encodings_crate }}" target="_blank">Crates.io</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="example">
+    <div class="container">
+        <h2>Example Implementation</h2>
+        <div class="example-card">
+            <div class="example-content">
+                <h3>RustVNC for Android</h3>
+                <p>A production Android app demonstrating rustvncserver in action. Full-featured VNC server with screen sharing, remote input, reverse connections, and automation APIs.</p>
+                <ul>
+                    <li>Screen sharing with configurable scaling</li>
+                    <li>Reverse VNC and UltraVNC repeater support</li>
+                    <li>Built-in noVNC web client</li>
+                    <li>Intent-based automation API</li>
+                </ul>
+                <div class="example-links">
+                    <a href="{{ config.extra.rustvnc_releases }}" class="btn btn-primary" target="_blank">Download APK</a>
+                    <a href="{{ config.extra.rustvnc_repo }}" class="btn btn-secondary" target="_blank">View Source</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="performance">
+    <div class="container">
+        <h2>Encoding Performance</h2>
+        <p class="section-subtitle">Compression ratios for 1920×1080 framebuffer updates</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Encoding</th>
+                        <th>Compression</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Raw</strong></td>
+                        <td>1:1 (~8.3 MB)</td>
+                        <td>LAN, unlimited bandwidth</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CopyRect</strong></td>
+                        <td>∞:1 (8 bytes)</td>
+                        <td>Scrolling, window dragging</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tight JPEG</strong></td>
+                        <td>16-83:1</td>
+                        <td>General purpose</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ZRLE</strong></td>
+                        <td>5-20:1</td>
+                        <td>Text, diagrams</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ZYWRLE</strong></td>
+                        <td>10-55:1</td>
+                        <td>Low bandwidth, lossy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TightPng</strong></td>
+                        <td>8-40:1</td>
+                        <td>Lossless compression</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to build?</h2>
+        <p>Add rustvncserver to your project and start building.</p>
+        <div class="cta-install">
+            <code>cargo add rustvncserver</code>
+        </div>
+        <div class="cta-buttons">
+            <a href="{{ get_url(path='docs/_index.md') }}" class="btn btn-primary">Read the Docs</a>
+            <a href="{{ config.extra.github_org }}" class="btn btn-secondary" target="_blank">Star on GitHub</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

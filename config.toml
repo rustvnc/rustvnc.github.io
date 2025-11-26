@@ -1,0 +1,41 @@
+# Zola configuration for RustVNC website
+base_url = "https://rustvnc.github.io"
+title = "RustVNC"
+description = "Production-ready Rust libraries for VNC protocol implementation"
+default_language = "en"
+
+# Syntax highlighting
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+smart_punctuation = true
+
+# Search index
+build_search_index = true
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+
+[extra]
+# Site metadata
+author = "Dustin McAfee"
+email = "dustin.mcafee@my.maryvillecollege.edu"
+github_org = "https://github.com/rustvnc"
+
+# Library links
+rustvncserver_repo = "https://github.com/rustvnc/rustvncserver"
+rustvncserver_crate = "https://crates.io/crates/rustvncserver"
+rustvncserver_docs = "https://docs.rs/rustvncserver"
+
+rfb_encodings_repo = "https://github.com/rustvnc/rfb-encodings"
+rfb_encodings_crate = "https://crates.io/crates/rfb-encodings"
+rfb_encodings_docs = "https://docs.rs/rfb-encodings"
+
+rustvnc_repo = "https://github.com/rustvnc/RustVNC"
+rustvnc_releases = "https://github.com/rustvnc/RustVNC/releases"
+
+[[taxonomies]]
+name = "tags"
