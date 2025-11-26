@@ -131,9 +131,11 @@ pre code {
     text-decoration: none;
 }
 
-.logo-img {
+.navbar .logo-img {
     height: 36px;
     width: 36px;
+    max-height: 36px;
+    max-width: 36px;
     border-radius: 6px;
 }
 
